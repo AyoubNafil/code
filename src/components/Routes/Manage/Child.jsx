@@ -1,4 +1,7 @@
 import React from "react";
+import Cards from "./CardsScrollable.jsx"
+
+
 
 class Child extends React.Component {
   render() {
@@ -13,6 +16,7 @@ class Child extends React.Component {
         </section>
         <section className="kanban__main">
           <div className="kanban__main-wrapper" />
+            <Cards />
         </section>
       </React.Fragment>
     );

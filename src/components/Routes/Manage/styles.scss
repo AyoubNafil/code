@@ -1,0 +1,100 @@
+html,
+body {
+  .row {
+    justify-content: center;
+  }
+
+  .producers {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    flex-wrap: wrap;
+
+    .producer-outer {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+
+      .arrows {
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none;
+      }
+
+      .arrows-dragging {
+        display: none;
+      }
+    }
+
+    .producer {
+      display: flex;
+      flex-flow: column;
+      width: 300px;
+      margin: 10px;
+
+      img {
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .name,
+      .location {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .name {
+        margin-top: 10px;
+        font-size: 15px;
+      }
+
+      .location {
+        font-size: 13px;
+      }
+
+      .info {
+        font-size: 11px;
+        color: darkgrey;
+        padding: 10px 10px;
+        line-height: initial;
+      }
+
+      .card-footer {
+        font-size: 11px;
+      }
+
+      .order,
+      .close-button {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 22px;
+        height: 22px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        line-height: initial;
+      }
+
+      .close-button {
+        font-size: 14px;
+        display: none;
+      }
+    }
+
+    .producer:hover {
+      .close-button {
+        display: flex;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//@import "~bootstrap/scss/bootstrap.scss";

@@ -1,0 +1,60 @@
+{
+    "manifest_version": 3,
+    "name": "InnovaScrum",
+    "description": "Agile Plateforme for salesforce",
+    "version": "1.0.0",
+    "action" : {
+        
+        "default_title": "InnovaScrum",
+        "default_icon" : "icon.png"
+    },
+
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+      },
+
+    "host_permissions": ["<all_urls>"],
+    
+    "permissions": [
+        "declarativeContent",
+        "tabs",
+        "bookmarks",
+        "storage",
+        "identity",
+        "cookies", "activeTab","tabs"
+       
+    ],
+
+    "content_scripts": [
+        {
+          "matches": [
+            "https://*.salesforce.com/*",
+            "https://*.visual.force.com/*",
+            "https://*.lightning.force.com/*",
+            "https://*.cloudforce.com/*",
+            "https://*.visualforce.com/*"
+          ],
+          "all_frames": true,
+          
+          "js": [
+            "content.js"
+           
+          ]
+        }
+      ],
+
+    "options_ui": {
+        "page": "index.html",
+        "open_in_tab": true
+    },
+      
+    "icons": {
+        "16" : "icon.png",
+        "48" : "icon.png",
+        "128" : "icon.png"
+    }
+    
+   
+    
+}

@@ -37,21 +37,28 @@ let conn = ConnexionSFTest();
 
 
 export function executeQuery(query) {
-
-
-	conn.then((cc) => {
+	return new Promise((resolve, reject) => {
+	  conn.then((cc) => {
 		cc.query(query, function(err, result) {
-		if (err) { return alert(err); }
-		if(result.records.length){
-			let data = result.records.map(currentItem => {
-	            let obj = Object.assign({}, currentItem);
-	            delete obj.attributes;
-	            return obj;
-	        });
-			console.log(data);
-		}
-	}); });
-}
+		  if (err) {
+			reject(err);
+		  } else {
+			if (result.records.length) {
+			  let data = result.records.map((currentItem) => {
+				let obj = Object.assign({}, currentItem);
+				delete obj.attributes;
+				return obj;
+			  });
+			  resolve(data);
+			} else {
+			  resolve([]);
+			}
+		  }
+		});
+	  });
+	});
+  }
+  
 
 
 export function createSObject(name,data){

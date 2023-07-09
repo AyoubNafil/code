@@ -11,7 +11,18 @@ import {
 } from "../../selectors/";
 import CSSTransition from "react-addons-css-transition-group";
 
+import { lists } from "../../api/data";
+
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: lists
+    };
+    
+  }
+
+
   render() {
     return (
       <section className="kanban__main">
@@ -29,33 +40,33 @@ class Main extends React.Component {
 
   get cardsList() {
 
-    
+
     const allowDrop = (ev) => {
       ev.preventDefault();
     };
-  
+
     const drag = (ev) => {
 
-     
+
       ev.dataTransfer.setData("text", ev.target.id);
-     
+
     };
-  
+
     const drop = (ev) => {
       ev.preventDefault();
       const data = ev.dataTransfer.getData('text');
       const sourceCardId = data;
       const targetCardId = ev.target.id;
-    
+
       const sourceCard = document.getElementById(sourceCardId);
       const targetCard = document.getElementById(targetCardId);
-    
+
       console.log(sourceCard);
       console.log(targetCard);
       // Swap the cards by swapping their parent nodes
       const sourceParent = sourceCard.parentNode;
       const targetParent = targetCard.parentNode;
-    
+
       sourceParent.replaceChild(targetCard, sourceCard);
       targetParent.appendChild(sourceCard);
     };
@@ -75,47 +86,21 @@ class Main extends React.Component {
               selected ? "kanban__main-wrapper-opacity" : "kanban__main-wrapper"
             }
           >
-             <div  onDragOver={allowDrop} onDrop={drop}>
-          
-            <Cards
-              id="drag1"
-              onDragStart={drag}
-              name="Backlog"
-              style={getRandomString()}
-              type="backlog"
-              data={backlog}
-            />
-             </div>
-             <div  onDragOver={allowDrop} onDrop={drop}>
-             <Cards
-              id="drag2"
-              onDragStart={drag}
-              name="In Progress"
-              style={getRandomString()}
-              type="progress"
-              data={progress}
-            />
-            </div>
-            <div  onDragOver={allowDrop} onDrop={drop}>
-            <Cards
-              id="drag3"
-              onDragStart={drag}
-              name="Review"
-              style={getRandomString()}
-              type="review"
-              data={review}
-            />
-            </div>
-            <div  onDragOver={allowDrop} onDrop={drop}>
-            <Cards
-              id="drag4"
-              onDragStart={drag}
-              name="Complete"
-              style={getRandomString()}
-              type="complete"
-              data={complete}
-            />
-            </div>
+            {this.state.items.map((item, index) => (
+
+              <div onDragOver={allowDrop} onDrop={drop}>
+                <Cards
+                  id={item.id}
+                  onDragStart={drag}
+                  name={item.name}
+                  style={getRandomString()}
+                  type={item.type}
+                  data={backlog}
+                />
+              </div>
+
+            ))}
+
           </div>
           <Button />
           <Select />

@@ -23,8 +23,8 @@ class App extends React.Component {
           <Header />
           <Sidebar />
           <Switch>
-            <Route exact path="/" component={Basic} />
-            <Route path="/manage" component={Manage} />
+            <Route exact path="/" component={Manage} />
+            <Route path="/list" component={Basic} />
             <Route path="/schedule" component={Schedule} />
             <Route path="/reports" component={Reports} />
             <Route path="/settings" component={Settings} />

@@ -167,28 +167,54 @@ export const normalizedTasks = [
 ];
 
 
-export const normalizedLists = [
+export const lists = [
   {
-    id: "a1lgjfek",
-    type: "backlog",
-    priority: "Low Priority",
-    user: "C. Guvert",
-    text: "Company website redesign",
-    avatar: "./3bc84a401a51991f895ac6f6f40b7010.jpg",
-    comments: "1",
-    attach: "2",
-    style: "card-color-low"
+
+    id:"drag1",
+    name:"Backlog",
+    type:"backlog"
+  },
+
+  {
+
+    id:"drag2",
+    name:"Progress",
+    type:"progress"
+  },
+
+  {
+
+    id:"drag3",
+    name:"Review",
+    type:"review"
+  },
+
+  {
+
+    id:"drag4",
+    name:"Complete",
+    type:"complete"
+  }
+
+];
+
+export const boards = [
+
+  {
+    id: 'item-1',
+    name: 'Board 1',
+    order: 1
   },
   {
-    id: "b2lgjfek",
-    type: "backlog",
-    priority: "Med Priority",
-    user: "A. Nilson",
-    text: "Mobile app login process prototype",
-    avatar: "./615f6d8539dbe37bc2c8f3d7d749182c.jpg",
-    comments: "2",
-    attach: "3",
-    style: "card-color-med"
+    id: 'item-2',
+    name: 'Board 2',
+    order: 2
   },
-  
+  {
+    id: 'item-3',
+    name: 'Board 3',
+    order: 3
+  }
+
+
 ];

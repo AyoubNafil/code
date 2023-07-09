@@ -24,16 +24,16 @@ import {
 
 // import "bootstrap/dist/css/bootstrap.css";
 import "./styles.scss";
-
+import { boards } from "../../../api/data";
 // fake data generator
-const getItems = count =>
-  Array.from({ length: count }, (v, k) => k).map(k => ({
-    id: `item-${k}`,
+// const getItems = count =>
+//   Array.from({ length: count }, (v, k) => k).map(k => ({
+//     id: `item-${k}`,
     
-    name: `Board ${k}`,
+//     name: `Board ${k}`,
     
-    order: k
-  }));
+//     order: k
+//   }));
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -64,7 +64,7 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: getItems(10)
+      items: boards
     };
     this.onDragEnd = this.onDragEnd.bind(this);
   }

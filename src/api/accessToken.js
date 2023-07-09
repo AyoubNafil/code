@@ -1,3 +1,6 @@
+
+/*global chrome*/
+
 export async function getDomainCookies() {
   
 
@@ -19,7 +22,7 @@ export async function getDomainCookies() {
         if (cookies[i].name === "sid") {
           var accessToken = cookies[i].value;
           var domain = cookies[i].domain;
-          //console.log([domain,accessToken]);
+          console.log([domain,accessToken]);
 
           return [domain,accessToken];
          
@@ -31,7 +34,7 @@ export async function getDomainCookies() {
   
     
     } catch (error) {
-      return 'Unexpected error';
+      return 'Unexpected error: '+error;
     }
   
   

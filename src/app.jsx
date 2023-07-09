@@ -48,7 +48,7 @@ const Sidebar = Loadable({
 
 
   
-//executeQuery("SELECT Id, Name FROM Account");
+executeQuery("SELECT Id, Name FROM Account");
 
 //createSObject("Account",{ Name : 'Test 1' });
 

@@ -9,6 +9,7 @@ import jsforce from "jsforce";
 	
 async function ConnexionSF() {
 	const cc =  await getDomainCookies();
+	console.log(cc);
 	conn = new jsforce.Connection({
 		instanceUrl : 'https://'+cc[0],
 		accessToken : cc[1]

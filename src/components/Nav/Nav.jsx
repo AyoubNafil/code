@@ -8,7 +8,7 @@ class Nav extends React.Component {
       <section className="kanban__nav">
         <div className="kanban__nav-wrapper">
           <Title />
-          <Team />
+          {/* <Team /> */}
         </div>
       </section>
     );

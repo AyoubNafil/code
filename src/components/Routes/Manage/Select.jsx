@@ -26,7 +26,7 @@ const Select = ({ selected }) => {
 
         </div>
 
-        {modalOpen && <Modal setOpenModal={setModalOpen} />}
+        {modalOpen && <Modal setOpenModal={setModalOpen} type="board" />}
       </div>
     );
   }

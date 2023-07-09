@@ -6,7 +6,7 @@ const Select = ({ selected }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
-    console.log("adddddd");
+    
     setModalOpen(true);
   };
 
@@ -26,7 +26,7 @@ const Select = ({ selected }) => {
 
         </div>
 
-        {modalOpen && <Modal setOpenModal={setModalOpen} />}
+        {modalOpen && <Modal setOpenModal={setModalOpen} type="list" />}
       </div>
     );
   }

@@ -1,24 +1,39 @@
 import {getDomainCookies} from "./accessToken.js";
 import jsforce from "jsforce";
 
+import {URL,AccessToken} from "../constants";
 
 
-
-
-
-	
-async function ConnexionSF() {
+async function ConnexionSFTest() {
 	const cc =  await getDomainCookies();
 	console.log(cc);
 	conn = new jsforce.Connection({
-		instanceUrl : 'https://'+cc[0],
-		accessToken : cc[1]
+		instanceUrl : 'https://'+URL,
+		accessToken : AccessToken
 		});
     return conn;
 
 }
 
-let conn = ConnexionSF();
+let conn = ConnexionSFTest();
+
+	
+// async function ConnexionSF() {
+// 	const cc =  await getDomainCookies();
+// 	console.log(cc);
+// 	conn = new jsforce.Connection({
+// 		instanceUrl : 'https://'+cc[0],
+// 		accessToken : cc[1]
+// 		});
+//     return conn;
+
+// }
+
+// let conn = ConnexionSF();
+
+
+
+
 
 
 export function executeQuery(query) {

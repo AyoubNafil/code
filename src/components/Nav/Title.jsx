@@ -7,7 +7,7 @@ class Title extends React.Component {
     const { board } = this.props;
     return (
       <div className="kanban__nav-name">
-        <div className="kanban-name">Studio Board</div>
+        <div className="kanban-name">Boards</div>
         <div className="kanban-arrow" onClick={this.handleBoardOpen}>
           <i className="material-icons">
             {board ? "expand_more" : "chevron_right"}

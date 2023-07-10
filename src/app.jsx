@@ -9,7 +9,7 @@ import Manage from "./components/Routes/Manage/Manage.jsx";
 import Reports from "./components/Routes/Reports/Reports.jsx";
 import Schedule from "./components/Routes/Schedule/Schedule.jsx";
 import Settings from "./components/Routes/Settings/Settings.jsx";
-import { executeQuery } from "./api/utile.js";
+import { executeQuery,ToolingPackage } from "./api/utile.js";
 import { PackageName } from "./constants";
 
 import { NavLink } from "react-router-dom";
@@ -17,7 +17,8 @@ import { NavLink } from "react-router-dom";
 class App extends React.Component {
   state = {
     isLoading: true,
-    array: []
+    cc :false,
+    // array: []
   };
 
   componentDidMount() {
@@ -26,16 +27,18 @@ class App extends React.Component {
 
   async fetchData() {
     try {
-      const array = await executeQuery(
-        "SELECT Id, NamespacePrefix FROM PackageLicense where NamespacePrefix like '" +
-        PackageName +
-        "'"
-      );
+      const cc = await ToolingPackage();
 
-      console.log("Fetched array:", array);
+      // const array = await executeQuery(
+      //   "SELECT Id, NamespacePrefix FROM PackageLicense where NamespacePrefix like '" +
+      //   PackageName +
+      //   "'"
+      // );
 
-      if (array && array.length > 0) {
-        this.setState({ array, isLoading: false });
+      // console.log("Fetched array:", array);
+
+      if (cc) {
+        this.setState({ cc, isLoading: false });
       } else {
         this.setState({ isLoading: false });
       }
@@ -46,7 +49,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { array, isLoading } = this.state;
+    const { cc, isLoading } = this.state;
 
     if (isLoading) {
       return (<div className="kanban-wrapper">
@@ -57,7 +60,7 @@ class App extends React.Component {
       </div>);
     }
 
-    if (array.length > 0) {
+    if (cc) {
       return (
         <div className="kanban-wrapper">
           <div className="kanban">
@@ -105,5 +108,7 @@ const Sidebar = Loadable({
   loader: () => import("./components/Sidebar/Sidebar.jsx"),
   loading: Loading
 });
+
+
 
 export default App;

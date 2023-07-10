@@ -51,7 +51,7 @@ function DraggableCard(props) {
         top
         width="100%"
         src="https://wp.salesforce.com/en-ap/wp-content/uploads/sites/14/2022/11/salesforce-logo.jpg?w=1024"
-        alt="test name"
+       
       />
       <CardTitle className="name">{props.name}</CardTitle>
       

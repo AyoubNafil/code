@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import Modal from "../../Modal/Modal.jsx";
 
-const Select = ({ selected }) => {
+const Select = ({ selected, addBoard }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = () => {
@@ -26,7 +26,7 @@ const Select = ({ selected }) => {
 
         </div>
 
-        {modalOpen && <Modal setOpenModal={setModalOpen} type="board" />}
+        {modalOpen && <Modal setOpenModal={setModalOpen} type="board" addBoard={addBoard}/>}
       </div>
     );
   }

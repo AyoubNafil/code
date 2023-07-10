@@ -5,7 +5,9 @@ import Button from "./Button.jsx";
 import { connect } from "react-redux";
 
 class Child extends React.Component {
-  
+  addBoard = (newBoard) => {
+    this.refs.cards.addBoard(newBoard);
+  }
   render() {
     const {selected } = this.props;
     return (
@@ -23,11 +25,11 @@ class Child extends React.Component {
               selected ? "kanban__main-wrapper-opacity" : "kanban__main-wrapper"
             }
            >
-           <Cards />
+           <Cards ref="cards"/>
             
             </div> 
             <Button />
-            <Select />
+            <Select addBoard={this.addBoard}/>
         </section>
 
         

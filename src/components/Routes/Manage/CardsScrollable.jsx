@@ -69,6 +69,12 @@ class Cards extends Component {
     this.onDragEnd = this.onDragEnd.bind(this);
   }
 
+  addBoard = (newBoard) => {
+    this.setState(prevState => ({
+      items: [...prevState.items, newBoard]
+    }));
+  };
+
   onDragEnd(result) {
     // dropped outside the list
     if (!result.destination) {

@@ -8,6 +8,7 @@ class Modal extends React.Component {
     this.state = {
       inputValue: ''
     };
+    
   }
   handleInputChange = (event) => {
     this.setState({ inputValue: event.target.value });
@@ -15,9 +16,17 @@ class Modal extends React.Component {
   };
 
   handleSubmit = (event) => {
+    const { setOpenModal, addBoard } = this.props;
     event.preventDefault();
     // Here you can perform any action with the input value, such as sending it to an API or updating the component's state.
     console.log('Input value:', this.state.inputValue);
+
+    const newBoard = {
+      id: Date.now().toString(),
+      name: this.state.inputValue
+    };
+
+    addBoard(newBoard);
 
     
 
